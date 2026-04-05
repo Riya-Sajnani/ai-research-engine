@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Bharat Aluminium Co vs Kaiser Aluminium Technical Services",
+    "citation": "AIR 2012 SC 3698",
+    "court": "Supreme Court of India",
+    "year": 2012,
+    "caseType": "arbitration",
+    "keywords": ["arbitration", "foreign award", "Part I", "International Commercial Arbitration", "seat of arbitration"],
+    "summary": "A landmark judgment where the Supreme Court held that Part I of the Arbitration and Conciliation Act 1996 does not apply to international commercial arbitrations held outside India. The court overruled its earlier decision in Bhatia International and held that Indian courts cannot intervene in foreign-seated arbitrations unless parties expressly agree otherwise.",
+    "relevantSections": ["Section 2 of Arbitration and Conciliation Act 1996", "Section 45 of Arbitration and Conciliation Act 1996", "Part I of Arbitration Act"]
+  },
+  {
+    "title": "Fuerst Day Lawson Ltd vs Jindal Exports Ltd",
+    "citation": "AIR 2011 SC 2649",
+    "court": "Supreme Court of India",
+    "year": 2011,
+    "caseType": "arbitration",
+    "keywords": ["foreign award", "enforcement", "New York Convention", "arbitration", "export contract"],
+    "summary": "The Supreme Court held that a foreign arbitral award can be enforced directly under Part II of the Arbitration Act without a separate suit. The court clarified the procedure for enforcement of New York Convention awards in India and held that the executing court can directly enforce the award.",
+    "relevantSections": ["Section 48 of Arbitration and Conciliation Act 1996", "Section 49 of Arbitration and Conciliation Act 1996", "Part II of Arbitration Act"]
+  },
+  {
+    "title": "Gemini Bay Transcription Pvt Ltd vs Integrated Sales Service Limited",
+    "citation": "2021 SCC OnLine SC 542",
+    "court": "Supreme Court of India",
+    "year": 2021,
+    "caseType": "arbitration",
+    "keywords": ["foreign award", "enforcement", "non-signatory", "arbitration agreement", "commercial contract"],
+    "summary": "The Supreme Court held that a foreign arbitral award can be enforced against non-signatories to the arbitration agreement if they are bound by the award under the law of the seat of arbitration. The court clarified that the enforcement court need not re-examine the merits of the award.",
+    "relevantSections": ["Section 44 of Arbitration and Conciliation Act 1996", "Section 46 of Arbitration and Conciliation Act 1996", "Section 48 of Arbitration and Conciliation Act 1996"]
+  },
+  {
+    "title": "GE Power Conversion India Pvt Ltd vs PASL Wind Solutions Pvt Ltd",
+    "citation": "2021 SCC OnLine SC 331",
+    "court": "Supreme Court of India",
+    "year": 2021,
+    "caseType": "arbitration",
+    "keywords": ["two Indian parties", "foreign seat arbitration", "party autonomy", "international arbitration", "UNCITRAL"],
+    "summary": "The Supreme Court held that two Indian parties can choose a foreign seat of arbitration and their agreement is valid under Indian law. The court upheld party autonomy and ruled that such awards can be enforced in India as foreign awards under Part II of the Arbitration Act.",
+    "relevantSections": ["Section 2(1)(f) of Arbitration Act", "Section 44 of Arbitration and Conciliation Act 1996", "Part II of Arbitration Act"]
+  },
+  {
+    "title": "Fortune Infrastructure vs Trevor D Lima",
+    "citation": "(2018) 5 SCC 442",
+    "court": "Supreme Court of India",
+    "year": 2018,
+    "caseType": "specific_performance",
+    "keywords": ["specific performance", "builder", "possession delay", "refund", "real estate contract"],
+    "summary": "The Supreme Court held that a buyer cannot be made to wait indefinitely for possession of property by a builder. In cases of unreasonable delay in offering possession, the buyer is entitled to seek full refund with compensation and cannot be compelled to accept possession at a belated stage.",
+    "relevantSections": ["Section 10 of Specific Relief Act 1963", "Section 73 of Indian Contract Act 1872", "Section 74 of Indian Contract Act 1872"]
+  },
+  {
+    "title": "Kailash Nath Associates vs Delhi Development Authority",
+    "citation": "(2015) 4 SCC 136",
+    "court": "Supreme Court of India",
+    "year": 2015,
+    "caseType": "contract",
+    "keywords": ["earnest money", "forfeiture", "breach of contract", "damages", "penalty clause"],
+    "summary": "The Supreme Court held that forfeiture of earnest money must be a genuine pre-estimate of damages and cannot be a penalty. The court ruled that if actual loss is not proved, the party cannot forfeit the entire earnest money and must refund the excess amount beyond actual damages suffered.",
+    "relevantSections": ["Section 73 of Indian Contract Act 1872", "Section 74 of Indian Contract Act 1872"]
+  },
+  {
+    "title": "Innoventive Industries Ltd vs ICICI Bank",
+    "citation": "(2018) 1 SCC 407",
+    "court": "Supreme Court of India",
+    "year": 2018,
+    "caseType": "recovery",
+    "keywords": ["insolvency", "IBC", "moratorium", "debt recovery", "financial creditor"],
+    "summary": "The Supreme Court in this landmark judgment interpreted the Insolvency and Bankruptcy Code 2016 and held that once a moratorium is declared under IBC, all pending suits and proceedings against the corporate debtor must be stayed. The court clarified the overriding effect of IBC over other laws.",
+    "relevantSections": ["Section 13 of Insolvency and Bankruptcy Code 2016", "Section 14 of Insolvency and Bankruptcy Code 2016", "Section 238 of Insolvency and Bankruptcy Code 2016"]
+  },
+  {
+    "title": "Mobilox Innovations Pvt Ltd vs Kirusa Software Pvt Ltd",
+    "citation": "(2018) 1 SCC 353",
+    "court": "Supreme Court of India",
+    "year": 2018,
+    "caseType": "recovery",
+    "keywords": ["operational creditor", "insolvency", "IBC", "disputed debt", "demand notice"],
+    "summary": "The Supreme Court laid down the law for operational creditors under IBC and held that if there is a pre-existing dispute about the debt, the insolvency application must be rejected. The court clarified the meaning of dispute and the threshold for admitting insolvency petitions by operational creditors.",
+    "relevantSections": ["Section 8 of Insolvency and Bankruptcy Code 2016", "Section 9 of Insolvency and Bankruptcy Code 2016"]
+  },
+  {
+    "title": "Larsen and Toubro Limited vs Experion Developers Pvt Ltd",
+    "citation": "2019 SCC OnLine SC 1541",
+    "court": "Supreme Court of India",
+    "year": 2019,
+    "caseType": "arbitration",
+    "keywords": ["arbitration clause", "construction contract", "disputes", "EPC contract", "contractor"],
+    "summary": "The Supreme Court upheld the arbitration clause in a construction contract between L&T and Experion Developers. The court held that disputes arising out of EPC contracts are arbitrable and directed the parties to resolve their disputes through arbitration as per the contract.",
+    "relevantSections": ["Section 11 of Arbitration and Conciliation Act 1996", "Section 8 of Arbitration and Conciliation Act 1996"]
+  },
+  {
+    "title": "L&T Hydrocarbon Engineering Ltd vs Indian Oil Corporation Limited",
+    "citation": "2022 SCC OnLine SC 1400",
+    "court": "Supreme Court of India",
+    "year": 2022,
+    "caseType": "contract",
+    "keywords": ["contract termination", "breach", "damages", "engineering contract", "public sector"],
+    "summary": "The Supreme Court examined the termination of an engineering and construction contract between L&T Hydrocarbon and Indian Oil Corporation. The court held that wrongful termination of contract entitles the contractor to damages including loss of profit and costs incurred before termination.",
+    "relevantSections": ["Section 73 of Indian Contract Act 1872", "Section 55 of Indian Contract Act 1872"]
+  },
+  {
+    "title": "Godrej Properties and Investments Ltd vs Tripura Construction",
+    "citation": "AIR 2003 Bom 123",
+    "court": "Bombay High Court",
+    "year": 2003,
+    "caseType": "specific_performance",
+    "keywords": ["specific performance", "development agreement", "property", "builder", "contract enforcement"],
+    "summary": "The Bombay High Court granted specific performance of a development agreement between Godrej Properties and a construction company. The court held that where monetary compensation is not adequate remedy for breach of a property development contract, specific performance must be granted.",
+    "relevantSections": ["Section 10 of Specific Relief Act 1963", "Section 14 of Specific Relief Act 1963"]
+  },
+  {
+    "title": "Jute Corporation of India Ltd vs ABL International Ltd",
+    "citation": "2023 SCC OnLine Cal 456",
+    "court": "Calcutta High Court",
+    "year": 2023,
+    "caseType": "recovery",
+    "keywords": ["trade dispute", "recovery of money", "jute", "international trade", "commercial court"],
+    "summary": "The Calcutta High Court directed recovery of money in a commercial trade dispute between Jute Corporation and an international trading company. The court held that where goods are supplied and payment is not made, the supplier is entitled to recover the amount with interest at commercial rates.",
+    "relevantSections": ["Order 37 of CPC", "Section 73 of Indian Contract Act 1872"]
+  },
+  {
+    "title": "Maxlinear Technologies Pvt Ltd vs Aptamitra Consulting Pvt Ltd",
+    "citation": "2026 SCC OnLine Del 123",
+    "court": "Delhi High Court",
+    "year": 2026,
+    "caseType": "contract",
+    "keywords": ["consulting agreement", "breach of contract", "IT services", "payment dispute", "commercial court"],
+    "summary": "The Delhi High Court ruled in favor of the plaintiff in a consulting services payment dispute. The court held that where services are rendered as per contract and payment is withheld without valid reason, the service provider is entitled to full payment along with interest and costs.",
+    "relevantSections": ["Section 73 of Indian Contract Act 1872", "Section 74 of Indian Contract Act 1872", "Commercial Courts Act 2015"]
+  },
+  {
+    "title": "Union of India vs Indian Agro Marketing Cooperative",
+    "citation": "2020 SCC OnLine SC 980",
+    "court": "Supreme Court of India",
+    "year": 2020,
+    "caseType": "contract",
+    "keywords": ["government contract", "cooperative", "breach", "agricultural marketing", "damages"],
+    "summary": "The Supreme Court examined a contract dispute between the Union of India and an agricultural marketing cooperative. The court held that government contracts must be performed in good faith and that wrongful breach entitles the affected party to damages even when the other party is the government.",
+    "relevantSections": ["Section 73 of Indian Contract Act 1872", "Article 299 of Constitution of India"]
+  }
+]

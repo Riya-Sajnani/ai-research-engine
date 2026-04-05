@@ -1,0 +1,107 @@
+[
+  {
+    "actName": "Indian Contract Act 1872",
+    "section": "Section 73",
+    "title": "Compensation for loss or damage caused by breach of contract",
+    "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive compensation for any loss or damage caused to him thereby which naturally arose in the usual course of things from such breach or which the parties knew when they made the contract to be likely to result from the breach of it.",
+    "keywords": ["breach of contract", "damages", "compensation", "loss"]
+  },
+  {
+    "actName": "Indian Contract Act 1872",
+    "section": "Section 74",
+    "title": "Compensation for breach of contract where penalty stipulated",
+    "description": "When a contract has been broken, if a sum is named in the contract as the amount to be paid in case of such breach, or if the contract contains any other stipulation by way of penalty, the party complaining of the breach is entitled to receive from the party who has broken the contract reasonable compensation not exceeding the amount so named or penalty stipulated for.",
+    "keywords": ["penalty", "liquidated damages", "breach", "compensation"]
+  },
+  {
+    "actName": "Indian Contract Act 1872",
+    "section": "Section 55",
+    "title": "Effect of failure to perform at fixed time in contract where time is essential",
+    "description": "When a party to a contract promises to do a certain thing at or before a specified time and fails to do any such thing at or before the specified time, the contract becomes voidable at the option of the promisee if the intention of the parties was that time should be of the essence.",
+    "keywords": ["time is essence", "breach", "voidable", "performance"]
+  },
+  {
+    "actName": "Specific Relief Act 1963",
+    "section": "Section 10",
+    "title": "Specific performance of contracts",
+    "description": "The specific performance of a contract shall be enforced by the court when the act agreed to be done is in the performance of a trust, when there exists no standard for ascertaining actual damage caused by non-performance, or when the act agreed to be done is such that monetary compensation for non-performance would not afford adequate relief.",
+    "keywords": ["specific performance", "contract enforcement", "adequate relief", "trust"]
+  },
+  {
+    "actName": "Specific Relief Act 1963",
+    "section": "Section 14",
+    "title": "Contracts not specifically enforceable",
+    "description": "The following contracts cannot be specifically enforced: a contract for the non-performance of which compensation in money is an adequate relief; a contract which runs into such minute or numerous details or which is so dependent on the personal qualifications or volition of the parties.",
+    "keywords": ["specific performance", "not enforceable", "personal contract", "compensation adequate"]
+  },
+  {
+    "actName": "Arbitration and Conciliation Act 1996",
+    "section": "Section 8",
+    "title": "Power to refer parties to arbitration where there is an arbitration agreement",
+    "description": "A judicial authority before which an action is brought in a matter which is the subject of an arbitration agreement shall refer the parties to arbitration unless it finds that prima facie no valid arbitration agreement exists.",
+    "keywords": ["arbitration agreement", "referral", "judicial authority", "stay of proceedings"]
+  },
+  {
+    "actName": "Arbitration and Conciliation Act 1996",
+    "section": "Section 11",
+    "title": "Appointment of arbitrators",
+    "description": "A person of any nationality may be an arbitrator unless otherwise agreed by the parties. The appointment of arbitrator shall be made by the Supreme Court or High Court or any person or institution designated by such Court.",
+    "keywords": ["arbitrator appointment", "Supreme Court", "High Court", "arbitration"]
+  },
+  {
+    "actName": "Arbitration and Conciliation Act 1996",
+    "section": "Section 34",
+    "title": "Application for setting aside arbitral award",
+    "description": "Recourse to a court against an arbitral award may be made only by an application for setting aside such award. An award may be set aside if the party was under some incapacity, the arbitration agreement is not valid, or the award is in conflict with the public policy of India.",
+    "keywords": ["set aside award", "public policy", "arbitral award", "challenge"]
+  },
+  {
+    "actName": "Arbitration and Conciliation Act 1996",
+    "section": "Section 48",
+    "title": "Conditions for enforcement of foreign awards",
+    "description": "Enforcement of a foreign award may be refused if the party against whom it is invoked furnishes proof that the parties were under some incapacity, the agreement is not valid, proper notice was not given, or the award deals with matters not within the submission to arbitration.",
+    "keywords": ["foreign award", "enforcement", "refusal", "New York Convention"]
+  },
+  {
+    "actName": "Code of Civil Procedure 1908",
+    "section": "Order 37",
+    "title": "Summary Suits",
+    "description": "Courts of competent jurisdiction may try suits upon bills of exchange, hundis, promissory notes, and suits in which the plaintiff seeks to recover a debt or liquidated demand in money payable by the defendant with or without interest arising on a written contract.",
+    "keywords": ["summary suit", "recovery", "debt", "liquidated demand", "promissory note"]
+  },
+  {
+    "actName": "Code of Civil Procedure 1908",
+    "section": "Order 39",
+    "title": "Temporary Injunctions",
+    "description": "Where in any suit it is proved by affidavit or otherwise that the property in dispute is in danger of being wasted, damaged, or alienated by any party to the suit, the court may by order grant a temporary injunction to restrain such act.",
+    "keywords": ["injunction", "temporary injunction", "stay", "property dispute"]
+  },
+  {
+    "actName": "Commercial Courts Act 2015",
+    "section": "Section 2",
+    "title": "Definitions — Commercial Dispute",
+    "description": "Commercial dispute means a dispute arising out of ordinary transactions of merchants, bankers, financiers and traders such as disputes relating to mercantile documents, export or import of merchandise, admiralty and maritime law, transactions relating to aircraft, real estate used for commercial purposes.",
+    "keywords": ["commercial dispute", "merchant", "trade", "commercial court", "definition"]
+  },
+  {
+    "actName": "Commercial Courts Act 2015",
+    "section": "Section 12",
+    "title": "Determination of Specified Value",
+    "description": "The specified value of the subject matter of a commercial dispute shall be determined in the manner provided under this section. Where the relief sought is for recovery of money, the money sought to be recovered shall be taken into account for determining specified value.",
+    "keywords": ["specified value", "commercial dispute", "pecuniary jurisdiction", "recovery"]
+  },
+  {
+    "actName": "Insolvency and Bankruptcy Code 2016",
+    "section": "Section 14",
+    "title": "Moratorium",
+    "description": "On insolvency commencement date, the Adjudicating Authority shall by order declare moratorium prohibiting institution of suits or continuation of pending suits or proceedings against the corporate debtor including execution of any judgment.",
+    "keywords": ["moratorium", "insolvency", "stay of proceedings", "corporate debtor", "IBC"]
+  },
+  {
+    "actName": "Insolvency and Bankruptcy Code 2016",
+    "section": "Section 9",
+    "title": "Application for initiation of corporate insolvency resolution process by operational creditor",
+    "description": "After expiry of the period of ten days from the date of delivery of the notice or invoice demanding payment, if the operational creditor does not receive payment or notice of dispute, the operational creditor may file an application before the Adjudicating Authority for initiating corporate insolvency resolution process.",
+    "keywords": ["operational creditor", "insolvency application", "demand notice", "dispute", "CIRP"]
+  }
+]

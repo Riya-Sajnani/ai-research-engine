@@ -1,0 +1,122 @@
+[
+  {
+    "caseType": "contract",
+    "court": "Supreme Court of India",
+    "totalCases": 150,
+    "plaintiffWins": 72,
+    "defendantWins": 58,
+    "settlements": 20,
+    "averageDurationMonths": 18,
+    "plaintiffWinPercentage": 48,
+    "defendantWinPercentage": 39,
+    "settlementPercentage": 13
+  },
+  {
+    "caseType": "arbitration",
+    "court": "Supreme Court of India",
+    "totalCases": 120,
+    "plaintiffWins": 65,
+    "defendantWins": 40,
+    "settlements": 15,
+    "averageDurationMonths": 12,
+    "plaintiffWinPercentage": 54,
+    "defendantWinPercentage": 33,
+    "settlementPercentage": 13
+  },
+  {
+    "caseType": "recovery",
+    "court": "Supreme Court of India",
+    "totalCases": 200,
+    "plaintiffWins": 130,
+    "defendantWins": 50,
+    "settlements": 20,
+    "averageDurationMonths": 10,
+    "plaintiffWinPercentage": 65,
+    "defendantWinPercentage": 25,
+    "settlementPercentage": 10
+  },
+  {
+    "caseType": "specific_performance",
+    "court": "Supreme Court of India",
+    "totalCases": 90,
+    "plaintiffWins": 40,
+    "defendantWins": 35,
+    "settlements": 15,
+    "averageDurationMonths": 24,
+    "plaintiffWinPercentage": 44,
+    "defendantWinPercentage": 39,
+    "settlementPercentage": 17
+  },
+  {
+    "caseType": "injunction",
+    "court": "Supreme Court of India",
+    "totalCases": 110,
+    "plaintiffWins": 55,
+    "defendantWins": 45,
+    "settlements": 10,
+    "averageDurationMonths": 8,
+    "plaintiffWinPercentage": 50,
+    "defendantWinPercentage": 41,
+    "settlementPercentage": 9
+  },
+  {
+    "caseType": "contract",
+    "court": "Delhi High Court",
+    "totalCases": 300,
+    "plaintiffWins": 140,
+    "defendantWins": 110,
+    "settlements": 50,
+    "averageDurationMonths": 14,
+    "plaintiffWinPercentage": 47,
+    "defendantWinPercentage": 37,
+    "settlementPercentage": 16
+  },
+  {
+    "caseType": "arbitration",
+    "court": "Delhi High Court",
+    "totalCases": 250,
+    "plaintiffWins": 130,
+    "defendantWins": 80,
+    "settlements": 40,
+    "averageDurationMonths": 10,
+    "plaintiffWinPercentage": 52,
+    "defendantWinPercentage": 32,
+    "settlementPercentage": 16
+  },
+  {
+    "caseType": "recovery",
+    "court": "Bombay High Court",
+    "totalCases": 280,
+    "plaintiffWins": 170,
+    "defendantWins": 80,
+    "settlements": 30,
+    "averageDurationMonths": 9,
+    "plaintiffWinPercentage": 61,
+    "defendantWinPercentage": 28,
+    "settlementPercentage": 11
+  },
+  {
+    "caseType": "specific_performance",
+    "court": "Bombay High Court",
+    "totalCases": 160,
+    "plaintiffWins": 70,
+    "defendantWins": 60,
+    "settlements": 30,
+    "averageDurationMonths": 20,
+    "plaintiffWinPercentage": 44,
+    "defendantWinPercentage": 37,
+    "settlementPercentage": 19
+  },
+  {
+    "caseType": "injunction",
+    "court": "Calcutta High Court",
+    "totalCases": 130,
+    "plaintiffWins": 60,
+    "defendantWins": 55,
+    "settlements": 15,
+    "averageDurationMonths": 7,
+    "plaintiffWinPercentage": 46,
+    "defendantWinPercentage": 42,
+    "settlementPercentage": 12
+  }
+]

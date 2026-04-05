@@ -1,0 +1,5 @@
+node_modules/
+.env
+uploads/
+seed/pdfs/
+seed/extracted_texts.json
