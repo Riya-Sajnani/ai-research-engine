@@ -13,7 +13,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/cases', require('./routes/caseRoutes'));
-// app.use('/api/history', require('./routes/historyRoutes'));
+app.use('/api/history', require('./routes/historyRoutes'));
 
 app.get('/', (req, res) => {
   res.send('Legal Research Engine API Running');
