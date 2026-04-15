@@ -1,18 +1,24 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ResultCard = ({ title, children }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-6 relative">
-      <div className="bg-[#1e3a5f] p-4 flex justify-between items-center">
-        <h3 className="text-white font-semibold text-lg">{title}</h3>
-        <span className="bg-[#c9a84c] text-white text-xs font-bold px-2 py-1 rounded">
-          AI Generated
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      className="glass-morphism rounded-3xl overflow-hidden border-white/10"
+    >
+      <div className="bg-white/5 px-6 py-4 flex justify-between items-center border-b border-white/5">
+        <h3 className="text-lex-gold font-bold text-lg uppercase tracking-wider">{title}</h3>
+        <span className="bg-lex-gold/10 text-lex-gold text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-widest border border-lex-gold/20">
+          AI Analysis
         </span>
       </div>
-      <div className="p-6 text-gray-800">
+      <div className="p-6">
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

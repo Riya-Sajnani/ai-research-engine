@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Scale, Loader2 } from 'lucide-react';
+import { Scale, Loader2, User, Mail, Lock, Building, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
+import { motion } from 'framer-motion';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,14 +14,10 @@ const Register = () => {
   });
   const [error, setError] = useState('');
   const [isPending, setIsPending] = useState(false);
-  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleRegister = async (e) => {
@@ -30,7 +27,7 @@ const Register = () => {
 
     try {
       await api.post('/api/auth/register', formData);
-      navigate('/');
+      navigate('/login', { state: { message: 'Registration successful! Please login.' } });
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {
@@ -39,86 +36,145 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center text-[#1e3a5f]">
-          <Scale size={48} className="text-[#c9a84c]" />
+    <div className="min-h-screen bg-[#020617] flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 -right-20 w-80 h-80 bg-lex-navy/20 blur-[100px] rounded-full -z-10" />
+      <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-lex-gold/10 blur-[100px] rounded-full -z-10" />
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-xl w-full"
+      >
+        <div className="text-center mb-10">
+          <Link to="/" className="inline-flex items-center space-x-2 mb-6">
+            <div className="bg-lex-gold/10 p-2 rounded-lg">
+              <Scale className="text-lex-gold" size={32} />
+            </div>
+            <span className="font-bold text-3xl tracking-tighter lex-gradient-text">LexAI</span>
+          </Link>
+          <h2 className="text-2xl font-bold text-white">Create Account</h2>
+          <p className="text-gray-500 mt-2">Join the revolution in legal research</p>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#1e3a5f]">
-          Court Official Registration
-        </h2>
-      </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border-t-4 border-[#c9a84c]">
-          <form className="space-y-4" onSubmit={handleRegister}>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Full Name</label>
-              <input
-                type="text" name="name" required value={formData.name} onChange={handleChange}
-                className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
-              />
+        <div className="glass-morphism p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl">
+          <form className="space-y-6" onSubmit={handleRegister}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                <div className="relative">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Adv. John Doe"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@court.gov.in"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Court/Organization</label>
+                <div className="relative">
+                  <Building className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                  <input
+                    type="text"
+                    name="court"
+                    required
+                    value={formData.court}
+                    onChange={handleChange}
+                    placeholder="Delhi High Court"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Primary Language</label>
+                <select
+                  name="preferredLanguage"
+                  value={formData.preferredLanguage}
+                  onChange={handleChange}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 focus:outline-none focus:border-lex-gold transition-all text-white"
+                >
+                  <option value="English" className="bg-lex-navyDark">English</option>
+                  <option value="Hindi" className="bg-lex-navyDark">Hindi</option>
+                  <option value="Marathi" className="bg-lex-navyDark">Marathi</option>
+                </select>
+              </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email</label>
-              <input
-                type="email" name="email" required value={formData.email} onChange={handleChange}
-                className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
-              <input
-                type="password" name="password" required value={formData.password} onChange={handleChange}
-                className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Court Name</label>
-              <input
-                type="text" name="court" required value={formData.court} onChange={handleChange}
-                className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Preferred Language</label>
-              <select
-                name="preferredLanguage" value={formData.preferredLanguage} onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
-              >
-                {['English', 'Hindi', 'Marathi', 'Tamil', 'Bengali', 'Gujarati'].map(lang => (
-                  <option key={lang} value={lang}>{lang}</option>
-                ))}
-              </select>
+              <label className="block text-sm font-medium text-gray-400 mb-2">Password</label>
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
+                />
+              </div>
             </div>
 
             {error && (
-              <div className="text-red-500 text-sm font-medium text-center">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="bg-red-500/10 border border-red-500/20 p-3 rounded-xl text-red-400 text-xs text-center font-medium"
+              >
                 {error}
-              </div>
+              </motion.div>
             )}
 
-            <div>
-              <button
-                type="submit" disabled={isPending}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1e3a5f] hover:bg-[#152a46] focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isPending ? <Loader2 className="animate-spin" size={20} /> : "Register"}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isPending}
+              className="w-full flex justify-center items-center py-4 px-4 bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark rounded-xl font-bold transition-all shadow-lg shadow-lex-gold/10 disabled:opacity-50"
+            >
+              {isPending ? <Loader2 className="animate-spin" size={20} /> : (
+                <>
+                  <span>Create Account</span>
+                  <ArrowRight size={18} className="ml-2" />
+                </>
+              )}
+            </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <Link to="/" className="text-sm font-medium text-[#1e3a5f] hover:text-[#152a46]">
-              Already have an account? Login
-            </Link>
+          <div className="mt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              Already have an account?{' '}
+              <Link to="/login" className="text-lex-gold font-bold hover:underline">
+                Sign in
+              </Link>
+            </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

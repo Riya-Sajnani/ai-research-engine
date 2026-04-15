@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Scale, Loader2 } from 'lucide-react';
+import { Scale, Loader2, Mail, Lock, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
+import { motion } from 'framer-motion';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -31,72 +32,97 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center text-[#1e3a5f]">
-          <Scale size={48} className="text-[#c9a84c]" />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#1e3a5f]">
-          LexAI
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Legal Research Engine for Indian Commercial Courts
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#020617] flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-lex-navy/20 blur-[100px] rounded-full -z-10" />
+      <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-lex-gold/10 blur-[100px] rounded-full -z-10" />
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border-t-4 border-[#1e3a5f]">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-md w-full"
+      >
+        <div className="text-center mb-10">
+          <Link to="/" className="inline-flex items-center space-x-2 mb-6">
+            <div className="bg-lex-gold/10 p-2 rounded-lg">
+              <Scale className="text-lex-gold" size={32} />
+            </div>
+            <span className="font-bold text-3xl tracking-tighter lex-gradient-text">LexAI</span>
+          </Link>
+          <h2 className="text-2xl font-bold text-white">Welcome Back</h2>
+          <p className="text-gray-500 mt-2">Access your legal research dashboard</p>
+        </div>
+
+        <div className="glass-morphism p-8 rounded-3xl border-white/10 shadow-2xl">
           <form className="space-y-6" onSubmit={handleLogin}>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Email address</label>
-              <div className="mt-1">
+              <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+              <div className="relative">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
+                  placeholder="name@court.gov.in"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
-              <div className="mt-1">
+              <label className="block text-sm font-medium text-gray-400 mb-2">Password</label>
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1e3a5f] focus:border-[#1e3a5f] sm:text-sm"
+                  placeholder="••••••••"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                 />
               </div>
             </div>
 
             {error && (
-              <div className="text-red-500 text-sm font-medium text-center">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="bg-red-500/10 border border-red-500/20 p-3 rounded-xl text-red-400 text-xs text-center font-medium"
+              >
                 {error}
-              </div>
+              </motion.div>
             )}
 
-            <div>
-              <button
-                type="submit"
-                disabled={isPending}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1e3a5f] hover:bg-[#152a46] focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isPending ? <Loader2 className="animate-spin" size={20} /> : "Login"}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isPending}
+              className="w-full flex justify-center items-center py-4 px-4 bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark rounded-xl font-bold transition-all shadow-lg shadow-lex-gold/10 disabled:opacity-50"
+            >
+              {isPending ? <Loader2 className="animate-spin" size={20} /> : (
+                <>
+                  <span>Sign In</span>
+                  <ArrowRight size={18} className="ml-2" />
+                </>
+              )}
+            </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <Link to="/register" className="text-sm font-medium text-[#c9a84c] hover:text-[#b09038]">
-              Register for an account
-            </Link>
+          <div className="mt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              Don't have an account?{' '}
+              <Link to="/register" className="text-lex-gold font-bold hover:underline">
+                Create one now
+              </Link>
+            </p>
           </div>
         </div>
-      </div>
+
+        <Link to="/" className="mt-8 flex items-center justify-center text-gray-500 text-sm hover:text-white transition-all">
+          <span>← Back to home</span>
+        </Link>
+      </motion.div>
     </div>
   );
 };
