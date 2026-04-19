@@ -1,10 +1,13 @@
 import React from 'react';
+import translations from '../utils/translations';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
 import { motion } from 'framer-motion';
 
 const Landing = () => {
+  const t = translations["English"];
+
   return (
     <div className="min-h-screen bg-[#020617] text-white">
       <Navbar isTransparent />
@@ -22,15 +25,15 @@ const Landing = () => {
               viewport={{ once: true }}
               className="glass-morphism p-12 rounded-3xl border-lex-gold/20"
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to transform your research?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">{t.readyToTransform || 'Ready to transform your research?'}</h2>
               <p className="text-gray-400 mb-10 text-lg">
-                Join hundreds of legal professionals using LexAI to streamline their case analysis.
+                {t.joinProfessionals || 'Join hundreds of legal professionals using LexAI to streamline their case analysis.'}
               </p>
               <button 
                 onClick={() => window.location.href = '/register'}
                 className="bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark font-bold py-4 px-10 rounded-xl transition-all shadow-lg"
               >
-                Create Free Account
+                {t.createFreeAccount || 'Create Free Account'}
               </button>
             </motion.div>
           </div>

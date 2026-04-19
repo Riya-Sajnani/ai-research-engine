@@ -3,6 +3,7 @@ import { Scale, Loader2, Mail, Lock, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
+import translations from '../utils/translations';
 import { motion } from 'framer-motion';
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
   const [isPending, setIsPending] = useState(false);
   
   const { login } = useAuth();
+  const t = translations["English"];
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -21,8 +23,8 @@ const Login = () => {
 
     try {
       const response = await api.post('/api/auth/login', { email, password });
-      const { token, user } = response.data;
-      login(user, token);
+      const { token, ...userData } = response.data;
+      login(userData, token);
       navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
@@ -49,14 +51,14 @@ const Login = () => {
             </div>
             <span className="font-bold text-3xl tracking-tighter lex-gradient-text">LexAI</span>
           </Link>
-          <h2 className="text-2xl font-bold text-white">Welcome Back</h2>
-          <p className="text-gray-500 mt-2">Access your legal research dashboard</p>
+          <h2 className="text-2xl font-bold text-white">{t.welcomeBack || 'Welcome Back'}</h2>
+          <p className="text-gray-500 mt-2">{t.accessDashboard || 'Access your legal research dashboard'}</p>
         </div>
 
         <div className="glass-morphism p-8 rounded-3xl border-white/10 shadow-2xl">
           <form className="space-y-6" onSubmit={handleLogin}>
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-gray-400 mb-2">{t.emailAddress || 'Email Address'}</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                 <input
@@ -64,14 +66,14 @@ const Login = () => {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="name@court.gov.in"
+                  placeholder={t.emailPlaceholder || 'name@court.gov.in'}
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Password</label>
+              <label className="block text-sm font-medium text-gray-400 mb-2">{t.password || 'Password'}</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                 <input
@@ -79,7 +81,7 @@ const Login = () => {
                   required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder={t.passwordPlaceholder || '••••••••'}
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                 />
               </div>
@@ -102,7 +104,7 @@ const Login = () => {
             >
               {isPending ? <Loader2 className="animate-spin" size={20} /> : (
                 <>
-                  <span>Sign In</span>
+                  <span>{t.signIn || 'Sign In'}</span>
                   <ArrowRight size={18} className="ml-2" />
                 </>
               )}
@@ -111,16 +113,16 @@ const Login = () => {
 
           <div className="mt-8 text-center">
             <p className="text-gray-500 text-sm">
-              Don't have an account?{' '}
+              {t.dontHaveAccount || "Don't have an account?"}{' '}
               <Link to="/register" className="text-lex-gold font-bold hover:underline">
-                Create one now
+                {t.createOneNow || 'Create one now'}
               </Link>
             </p>
           </div>
         </div>
 
         <Link to="/" className="mt-8 flex items-center justify-center text-gray-500 text-sm hover:text-white transition-all">
-          <span>← Back to home</span>
+          <span>{t.backToHome || '← Back to home'}</span>
         </Link>
       </motion.div>
     </div>

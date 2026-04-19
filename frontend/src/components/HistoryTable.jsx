@@ -1,7 +1,8 @@
 import React from 'react';
+import translations from '../utils/translations';
 
-const HistoryTable = ({ history, translations, language }) => {
-  const t = translations[language] || translations["English"];
+const HistoryTable = ({ history }) => {
+  const t = translations["English"];
 
   if (!history || history.length === 0) {
     return (
@@ -29,7 +30,7 @@ const HistoryTable = ({ history, translations, language }) => {
                 key={item._id || index} 
                 className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-gray-100 transition-colors`}
               >
-                <td className="p-4 text-sm font-medium text-gray-800">{item.fileName}</td>
+                <td className="p-4 text-sm font-medium text-gray-800">{item.filename}</td>
                 <td className="p-4 text-sm text-gray-600">
                   <span className="bg-[#e4ebf5] text-[#1e3a5f] px-2 py-1 rounded-md text-xs font-semibold">
                     {item.caseType}

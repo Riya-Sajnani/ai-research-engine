@@ -1,7 +1,9 @@
 import React from 'react';
+import translations from '../utils/translations';
 import { motion } from 'framer-motion';
 
 const PredictionChart = ({ plaintiffWonPct, defendantWonPct }) => {
+  const t = translations['English'];
   const pPct = typeof plaintiffWonPct === 'number' ? plaintiffWonPct : 0;
   const dPct = typeof defendantWonPct === 'number' ? defendantWonPct : 0;
   
@@ -10,8 +12,8 @@ const PredictionChart = ({ plaintiffWonPct, defendantWonPct }) => {
       <div>
         <div className="flex justify-between items-end mb-3">
           <div>
-            <span className="text-xs uppercase tracking-widest font-bold text-gray-500 block mb-1">Success Probability</span>
-            <span className="text-lg font-bold text-white">Plaintiff Outcome</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-gray-500 block mb-1">{t.successProbability || 'Success Probability'}</span>
+            <span className="text-lg font-bold text-white">{t.plaintiffOutcome || 'Plaintiff Outcome'}</span>
           </div>
           <span className="text-2xl font-bold text-lex-gold">{pPct}%</span>
         </div>
@@ -29,8 +31,8 @@ const PredictionChart = ({ plaintiffWonPct, defendantWonPct }) => {
       <div>
         <div className="flex justify-between items-end mb-3">
           <div>
-            <span className="text-xs uppercase tracking-widest font-bold text-gray-500 block mb-1">Defense Probability</span>
-            <span className="text-lg font-bold text-white">Defendant Outcome</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-gray-500 block mb-1">{t.defenseProbability || 'Defense Probability'}</span>
+            <span className="text-lg font-bold text-white">{t.defendantOutcome || 'Defendant Outcome'}</span>
           </div>
           <span className="text-2xl font-bold text-red-400">{dPct}%</span>
         </div>
@@ -47,7 +49,7 @@ const PredictionChart = ({ plaintiffWonPct, defendantWonPct }) => {
       
       <div className="bg-lex-gold/5 border border-lex-gold/10 p-4 rounded-xl">
         <p className="text-[10px] text-lex-gold uppercase tracking-widest text-center font-bold leading-relaxed">
-          Statistical Guidance Only • Not a Legal Recommendation • Powered by LexAI ML v2.4
+          {t.statisticalGuidance || 'Statistical Guidance Only'} • {t.notLegalRecommendation || 'Not a Legal Recommendation'} • {t.poweredBy || 'Powered by LexAI ML v2.4'}
         </p>
       </div>
     </div>

@@ -1,41 +1,38 @@
 import React from 'react';
+import translations from '../utils/translations';
 import { motion } from 'framer-motion';
-import { FileText, BarChart2, BookOpen, Globe, Link, Cpu } from 'lucide-react';
-
-const facilities = [
-  {
-    icon: <FileText className="text-lex-gold" />,
-    title: "AI Case Summarization",
-    description: "Instantly transform lengthy legal documents into concise, actionable summaries without losing critical details."
-  },
-  {
-    icon: <BarChart2 className="text-lex-gold" />,
-    title: "Predictive Outcomes",
-    description: "Utilize advanced machine learning to estimate win/loss probabilities based on historical case patterns."
-  },
-  {
-    icon: <BookOpen className="text-lex-gold" />,
-    title: "Provision Identification",
-    description: "Automatically identify and link relevant acts, sections, and legal provisions mentioned in your documents."
-  },
-  {
-    icon: <Cpu className="text-lex-gold" />,
-    title: "Precedent Search",
-    description: "Find comparable past judgments and legal precedents within seconds using our semantic search engine."
-  },
-  {
-    icon: <Globe className="text-lex-gold" />,
-    title: "Multi-Language Support",
-    description: "Analyze and translate legal documents in multiple Indian languages, breaking down linguistic barriers."
-  },
-  {
-    icon: <Link className="text-lex-gold" />,
-    title: "Smart URL Integration",
-    description: "Process not just uploaded files, but also direct links to legal repositories and online case documents."
-  }
-];
+import { FileText, BarChart2, BookOpen, Link, Cpu } from 'lucide-react';
 
 const AboutSection = () => {
+  const t = translations['English'];
+  const facilities = [
+    {
+      icon: <FileText className="text-lex-gold" />,
+      title: t.aiCaseSummarizationTitle || 'AI Case Summarization',
+      description: t.aiCaseSummarizationDesc || 'Instantly transform lengthy legal documents into concise, actionable summaries without losing critical details.'
+    },
+    {
+      icon: <BarChart2 className="text-lex-gold" />,
+      title: t.predictiveOutcomesTitle || 'Predictive Outcomes',
+      description: t.predictiveOutcomesDesc || 'Utilize advanced machine learning to estimate win/loss probabilities based on historical case patterns.'
+    },
+    {
+      icon: <BookOpen className="text-lex-gold" />,
+      title: t.provisionIdentificationTitle || 'Provision Identification',
+      description: t.provisionIdentificationDesc || 'Automatically identify and link relevant acts, sections, and legal provisions mentioned in your documents.'
+    },
+    {
+      icon: <Cpu className="text-lex-gold" />,
+      title: t.precedentSearchTitle || 'Precedent Search',
+      description: t.precedentSearchDesc || 'Find comparable past judgments and legal precedents within seconds using our semantic search engine.'
+    },
+    {
+      icon: <Link className="text-lex-gold" />,
+      title: t.smartUrlIntegrationTitle || 'Smart URL Integration',
+      description: t.smartUrlIntegrationDesc || 'Process not just uploaded files, but also direct links to legal repositories and online case documents.'
+    }
+  ];
+
   return (
     <section id="about" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +43,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-4"
           >
-            Capabilities of <span className="lex-gradient-text">LexAI</span>
+            {t.capabilitiesOfLexAI || 'Capabilities of'} <span className="lex-gradient-text">LexAI</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +52,7 @@ const AboutSection = () => {
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-2xl mx-auto"
           >
-            Our AI-driven research engine is designed specifically for the Indian Commercial Court system, providing judges and legal professionals with state-of-the-art facilities.
+            {t.capabilitiesDescription || 'Our AI-driven research engine is designed specifically for the Indian Commercial Court system, providing judges and legal professionals with state-of-the-art facilities.'}
           </motion.p>
         </div>
 

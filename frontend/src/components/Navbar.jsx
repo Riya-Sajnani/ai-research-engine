@@ -5,13 +5,13 @@ import { useAuth } from '../context/AuthContext';
 import translations from '../utils/translations';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = ({ language, setLanguage, isTransparent = false }) => {
+const Navbar = ({ isTransparent = false }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const t = translations[language] || translations["English"];
+  const t = translations['English'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +27,9 @@ const Navbar = ({ language, setLanguage, isTransparent = false }) => {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/', icon: <Info size={18} />, hidden: !!user },
-    { name: 'Dashboard', path: '/dashboard', icon: <LayoutDashboard size={18} />, hidden: !user },
-    { name: 'History', path: '/history', icon: <History size={18} />, hidden: !user },
+    { name: t.home || 'Home', path: '/', icon: <Info size={18} />, hidden: !!user },
+    { name: t.dashboard || 'Dashboard', path: '/dashboard', icon: <LayoutDashboard size={18} />, hidden: !user },
+    { name: t.history || 'History', path: '/history', icon: <History size={18} />, hidden: !user },
   ];
 
   const glassClass = (isScrolled || !isTransparent) 
@@ -69,16 +69,6 @@ const Navbar = ({ language, setLanguage, isTransparent = false }) => {
             <div className="h-4 w-[1px] bg-white/10" />
 
             <div className="flex items-center space-x-4">
-              <select 
-                value={language} 
-                onChange={(e) => setLanguage && setLanguage(e.target.value)}
-                className="bg-white/5 border border-white/10 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:border-lex-gold transition-all cursor-pointer"
-              >
-                {Object.keys(translations).map(lang => (
-                  <option key={lang} value={lang} className="bg-lex-navyDark">{lang}</option>
-                ))}
-              </select>
-
               {user ? (
                 <div className="flex items-center space-x-4 pl-4 border-l border-white/10">
                   <div className="text-right">
@@ -94,8 +84,8 @@ const Navbar = ({ language, setLanguage, isTransparent = false }) => {
                 </div>
               ) : (
                 <div className="flex items-center space-x-4">
-                  <Link to="/login" className="text-sm font-medium text-gray-400 hover:text-white transition-all">Login</Link>
-                  <Link to="/register" className="bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-lex-gold/10">Get Started</Link>
+                  <Link to="/login" className="text-sm font-medium text-gray-400 hover:text-white transition-all">{t.login || 'Login'}</Link>
+                  <Link to="/register" className="bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-lex-gold/10">{t.getStarted || 'Get Started'}</Link>
                 </div>
               )}
             </div>
@@ -149,13 +139,13 @@ const Navbar = ({ language, setLanguage, isTransparent = false }) => {
                       className="w-full flex items-center justify-center space-x-2 bg-red-500/10 text-red-400 py-3 rounded-xl font-bold"
                     >
                       <LogOut size={18} />
-                      <span>Logout</span>
+                      <span>{t.logout || 'Logout'}</span>
                     </button>
                   </>
                 ) : (
                   <div className="grid grid-cols-2 gap-4">
-                    <Link to="/login" className="flex items-center justify-center border border-white/10 py-3 rounded-xl font-bold">Login</Link>
-                    <Link to="/register" className="flex items-center justify-center bg-lex-gold text-lex-navyDark py-3 rounded-xl font-bold">Register</Link>
+                    <Link to="/login" className="flex items-center justify-center border border-white/10 py-3 rounded-xl font-bold">{t.login || 'Login'}</Link>
+                    <Link to="/register" className="flex items-center justify-center bg-lex-gold text-lex-navyDark py-3 rounded-xl font-bold">{t.register || 'Register'}</Link>
                   </div>
                 )}
               </div>

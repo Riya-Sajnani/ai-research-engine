@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Scale, Loader2, User, Mail, Lock, Building, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
+import translations from '../utils/translations';
 import { motion } from 'framer-motion';
 
 const Register = () => {
@@ -14,6 +15,7 @@ const Register = () => {
   });
   const [error, setError] = useState('');
   const [isPending, setIsPending] = useState(false);
+  const t = translations["English"];
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -53,15 +55,15 @@ const Register = () => {
             </div>
             <span className="font-bold text-3xl tracking-tighter lex-gradient-text">LexAI</span>
           </Link>
-          <h2 className="text-2xl font-bold text-white">Create Account</h2>
-          <p className="text-gray-500 mt-2">Join the revolution in legal research</p>
+          <h2 className="text-2xl font-bold text-white">{t.createAccount || 'Create Account'}</h2>
+          <p className="text-gray-500 mt-2">{t.joinRevolution || 'Join the revolution in legal research'}</p>
         </div>
 
         <div className="glass-morphism p-8 md:p-10 rounded-3xl border-white/10 shadow-2xl">
           <form className="space-y-6" onSubmit={handleRegister}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                <label className="block text-sm font-medium text-gray-400 mb-2">{t.fullName || 'Full Name'}</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                   <input
@@ -70,14 +72,14 @@ const Register = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Adv. John Doe"
+                    placeholder={t.namePlaceholder || 'Adv. John Doe'}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <label className="block text-sm font-medium text-gray-400 mb-2">{t.emailAddress || 'Email Address'}</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                   <input
@@ -86,7 +88,7 @@ const Register = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@court.gov.in"
+                    placeholder={t.emailPlaceholder || 'john@court.gov.in'}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                   />
                 </div>
@@ -95,7 +97,7 @@ const Register = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Court/Organization</label>
+                <label className="block text-sm font-medium text-gray-400 mb-2">{t.courtOrganization || 'Court/Organization'}</label>
                 <div className="relative">
                   <Building className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                   <input
@@ -104,14 +106,14 @@ const Register = () => {
                     required
                     value={formData.court}
                     onChange={handleChange}
-                    placeholder="Delhi High Court"
+                    placeholder={t.courtPlaceholder || 'Delhi High Court'}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Primary Language</label>
+                <label className="block text-sm font-medium text-gray-400 mb-2">{t.primaryLanguage || 'Primary Language'}</label>
                 <select
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
@@ -126,7 +128,7 @@ const Register = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Password</label>
+              <label className="block text-sm font-medium text-gray-400 mb-2">{t.password || 'Password'}</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                 <input
@@ -135,7 +137,7 @@ const Register = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  placeholder="••••••••"
+                  placeholder={t.passwordPlaceholder || '••••••••'}
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:border-lex-gold transition-all text-white"
                 />
               </div>
@@ -158,7 +160,7 @@ const Register = () => {
             >
               {isPending ? <Loader2 className="animate-spin" size={20} /> : (
                 <>
-                  <span>Create Account</span>
+                  <span>{t.createAccountButton || 'Create Account'}</span>
                   <ArrowRight size={18} className="ml-2" />
                 </>
               )}
@@ -167,9 +169,9 @@ const Register = () => {
 
           <div className="mt-8 text-center">
             <p className="text-gray-500 text-sm">
-              Already have an account?{' '}
+              {t.alreadyHaveAccount || 'Already have an account?'}{' '}
               <Link to="/login" className="text-lex-gold font-bold hover:underline">
-                Sign in
+                {t.signIn || 'Sign in'}
               </Link>
             </p>
           </div>

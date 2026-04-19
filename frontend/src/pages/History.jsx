@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import HistoryTable from '../components/HistoryTable';
@@ -8,12 +8,11 @@ import { Loader2 } from 'lucide-react';
 
 const History = () => {
   const { user } = useAuth();
-  const [language, setLanguage] = useState(user?.preferredLanguage || 'English');
   const [history, setHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   
-  const t = translations[language] || translations["English"];
+  const t = translations["English"];
 
   useEffect(() => {
     fetchHistory();
@@ -22,9 +21,9 @@ const History = () => {
   const fetchHistory = async () => {
     try {
       const response = await api.get('/api/history');
-      setHistory(response.data);
+      setHistory(response.data?.data || []);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to load history.');
+      setError(err.response?.data?.message || t.failedLoadHistory || 'Failed to load history.');
     } finally {
       setIsLoading(false);
     }
@@ -32,12 +31,12 @@ const History = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-      <Navbar language={language} setLanguage={setLanguage} />
+      <Navbar />
       
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[#1e3a5f]">{t.history}</h1>
-          <p className="text-gray-600">Past case analyses</p>
+          <p className="text-gray-600">{t.pastAnalyses || 'Past case analyses'}</p>
         </div>
 
         {isLoading ? (
@@ -49,7 +48,7 @@ const History = () => {
             {error}
           </div>
         ) : (
-          <HistoryTable history={history} translations={translations} language={language} />
+          <HistoryTable history={history} />
         )}
       </main>
     </div>

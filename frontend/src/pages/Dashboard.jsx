@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import UploadBox from '../components/UploadBox';
@@ -12,14 +12,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Dashboard = () => {
   const { user } = useAuth();
-  const [language, setLanguage] = useState(user?.preferredLanguage || 'English');
   const [selectedFile, setSelectedFile] = useState(null);
   const [isAnalysing, setIsAnalysing] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
   
   const resultsRef = useRef(null);
-  const t = translations[language] || translations["English"];
+  const t = translations["English"];
 
   const handleFileSelect = (file) => {
     setSelectedFile(file);
@@ -31,8 +30,8 @@ const Dashboard = () => {
     setError('');
     
     try {
-      const response = await api.post('/api/case/analyze-link', { url, language });
-      setResult(response.data);
+      const response = await api.post('/api/cases/analyze-link', { url, language: 'English' });
+      setResult(response.data?.data || null);
       scrollToResults();
     } catch (err) {
       setError(err.response?.data?.message || 'Error analysing the case link.');
@@ -55,13 +54,13 @@ const Dashboard = () => {
     
     const formData = new FormData();
     formData.append('pdf', selectedFile);
-    formData.append('language', language);
+    formData.append('language', 'English');
     
     try {
-      const response = await api.post('/api/case/upload', formData, {
+      const response = await api.post('/api/cases/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      setResult(response.data);
+      setResult(response.data?.data || null);
       scrollToResults();
     } catch (err) {
       setError(err.response?.data?.message || 'Error analysing the case document.');
@@ -72,7 +71,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-white flex flex-col font-sans">
-      <Navbar language={language} setLanguage={setLanguage} />
+<Navbar />
       
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
         {/* Welcome Section */}
@@ -83,15 +82,15 @@ const Dashboard = () => {
         >
           <div>
             <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              Welcome back, <span className="lex-gradient-text">{user?.name || 'Researcher'}</span>
+              {t.welcomeBackUser || 'Welcome back'}, <span className="lex-gradient-text">{user?.name || 'Researcher'}</span>
             </h1>
             <p className="text-gray-400 flex items-center">
               <Sparkles size={16} className="text-lex-gold mr-2" />
-              {user?.court || 'Ready for new case analysis'}
+              {user?.court || t.readyForNewAnalysis || 'Ready for new case analysis'}
             </p>
           </div>
           <div className="mt-4 md:mt-0 text-gray-500 text-sm italic">
-            Last session: {new Date().toLocaleDateString()}
+            {t.lastSession || 'Last session:'} {new Date().toLocaleDateString()}
           </div>
         </motion.div>
 
@@ -105,14 +104,12 @@ const Dashboard = () => {
             className="lg:col-span-2 glass-morphism p-8 rounded-3xl border-white/10"
           >
             <h2 className="text-xl font-bold mb-6 flex items-center">
-              Start New Analysis
+              {t.startNewAnalysis || 'Start New Analysis'}
             </h2>
             
             <UploadBox 
               onFileSelect={handleFileSelect} 
               onUrlSubmit={handleUrlSubmit}
-              translations={translations} 
-              language={language} 
             />
             
             <AnimatePresence>
@@ -138,10 +135,10 @@ const Dashboard = () => {
                 {isAnalysing ? (
                   <>
                     <Loader2 className="animate-spin mr-2" size={20} />
-                    Processing...
+                    {t.processing || 'Processing...'}
                   </>
                 ) : (
-                  'Analyze Document'
+                  t.analyzeDocument || 'Analyze Document'
                 )}
               </button>
             </div>
@@ -155,16 +152,16 @@ const Dashboard = () => {
             className="flex flex-col gap-6"
           >
             <div className="glass-morphism p-6 rounded-3xl border-white/10 flex-grow">
-              <h3 className="font-bold text-lex-gold mb-4 uppercase tracking-widest text-xs">Recent Activity</h3>
+              <h3 className="font-bold text-lex-gold mb-4 uppercase tracking-widest text-xs">{t.recentActivity || 'Recent Activity'}</h3>
               <div className="space-y-4">
-                <p className="text-gray-500 text-sm italic">No recent analyses found. Start by uploading a PDF or pasting a link.</p>
+                <p className="text-gray-500 text-sm italic">{t.noRecentAnalyses || 'No recent analyses found. Start by uploading a PDF or pasting a link.'}</p>
               </div>
             </div>
             
             <div className="bg-gradient-to-br from-lex-navy to-[#152a46] p-6 rounded-3xl border border-white/5 shadow-2xl">
-              <h3 className="font-bold text-white mb-2">Pro Tip</h3>
+              <h3 className="font-bold text-white mb-2">{t.proTip || 'Pro Tip'}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                You can now paste direct links from **Indian Kanoon** for instant semantic analysis of judgments.
+                {t.pasteLinksTip || 'You can now paste direct links from Indian Kanoon for instant semantic analysis of judgments.'}
               </p>
             </div>
           </motion.div>
@@ -181,9 +178,9 @@ const Dashboard = () => {
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-bold flex items-center">
                 <Sparkles className="text-lex-gold mr-3" size={28} />
-                Analysis Results
+                {t.analysisResults || 'Analysis Results'}
               </h2>
-              <button className="text-lex-gold text-sm font-semibold hover:underline">Export Report (PDF)</button>
+              <button className="text-lex-gold text-sm font-semibold hover:underline">{t.exportReport || 'Export Report (PDF)'}</button>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -199,7 +196,7 @@ const Dashboard = () => {
                 
                 {result.legalIssues && result.legalIssues.length > 0 && (
                   <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                    <h4 className="font-bold text-lex-gold mb-4 flex items-center uppercase tracking-widest text-xs">Key Legal Issues</h4>
+                    <h4 className="font-bold text-lex-gold mb-4 flex items-center uppercase tracking-widest text-xs">{t.keyLegalIssues || 'Key Legal Issues'}</h4>
                     <ul className="space-y-3 text-gray-300">
                       {result.legalIssues.map((issue, i) => (
                         <li key={i} className="flex items-start">
@@ -240,7 +237,7 @@ const Dashboard = () => {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500 italic">No specific legal provisions identified.</p>
+                    <p className="text-gray-500 italic">{t.noSpecificProvisions || 'No specific legal provisions identified.'}</p>
                   )}
                 </ResultCard>
                 
@@ -256,7 +253,7 @@ const Dashboard = () => {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500 italic">No precedents found in our current database.</p>
+                    <p className="text-gray-500 italic">{t.noPrecedentsFound || 'No precedents found in our current database.'}</p>
                   )}
                 </ResultCard>
               </div>
