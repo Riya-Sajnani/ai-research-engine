@@ -35,20 +35,56 @@ const uploadCase = async (req, res) => {
     // Step 4 - Send to Gemini API
     const geminiResult = await analyzeWithGemini(extractedText, language);
 
+    //Temporary debug line
+console.log('Gemini keywords:', geminiResult.keywords);
+console.log('Gemini caseType:', geminiResult.caseType);
+
     // Step 5 - Three parallel MongoDB searches
-    const [provisions, precedents, outcomeStat] = await Promise.all([
-      LegalProvision.find({
-        keywords: { $in: geminiResult.keywords }
-      }).limit(5),
+    
+      const keywordRegex = geminiResult.keywords.map(k => new RegExp(k, 'i'));
 
-      Precedent.find({
-        keywords: { $in: geminiResult.keywords }
-      }).limit(5),
+      const [provisions, precedents, outcomeStat] = await Promise.all([
+        LegalProvision.find({
+            $or: [
+              { keywords: { $in: geminiResult.keywords } },
+              { keywords: { $in: keywordRegex } },
+              { description: { $regex: geminiResult.keywords.join('|'), $options: 'i' } },
+              { actName: { $regex: geminiResult.keywords.join('|'), $options: 'i' } },
+              { keywords: { $regex: geminiResult.caseType, $options: 'i' } },
+              { title: { $regex: geminiResult.caseType, $options: 'i' } }
+            ]
+          }).limit(5),
 
-      OutcomeStat.findOne({
-        caseType: geminiResult.caseType
-      })
-    ]);
+        Precedent.find({
+          $or: [
+            { keywords: { $in: geminiResult.keywords } },
+            { keywords: { $in: keywordRegex } },
+            { caseType: geminiResult.caseType },
+            { summary: { $regex: geminiResult.keywords.join('|'), $options: 'i' } }
+          ]
+        }).limit(5),
+
+        OutcomeStat.findOne({
+          $or: [
+            { caseType: geminiResult.caseType },
+            { caseType: { $regex: geminiResult.caseType, $options: 'i' } }
+          ]
+        })
+      ]);
+      console.log('Provisions found:', provisions.length);
+console.log('Precedents found:', precedents.length);
+console.log('OutcomeStat found:', outcomeStat);
+console.log('Keywords for search:', geminiResult.keywords);
+console.log('CaseType for search:', geminiResult.caseType);
+console.log('Provisions found:', provisions.length);
+if(provisions.length > 0) {
+  console.log('First provision:', provisions[0]);
+} else {
+  // Manual test search
+  const testSearch = await LegalProvision.find({});
+  console.log('Total provisions in DB:', testSearch.length);
+  console.log('Sample provision keywords:', testSearch[0]?.keywords);
+}
 
     // Step 6 - Save AI Analysis
     const aiAnalysis = await AIAnalysis.create({

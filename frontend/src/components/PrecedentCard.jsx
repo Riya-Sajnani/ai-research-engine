@@ -13,7 +13,7 @@ const PrecedentCard = ({ precedent }) => {
         </button>
       </div>
       
-      <h4 className="font-bold text-white mb-2 leading-tight group-hover:text-lex-gold transition-colors">{precedent.caseTitle}</h4>
+      <h4 className="font-bold text-white mb-2 leading-tight group-hover:text-lex-gold transition-colors">{precedent.Title}</h4>
       
       <div className="flex flex-wrap gap-2 mb-3">
         <span className="text-[10px] bg-white/5 text-gray-400 px-2 py-0.5 rounded border border-white/5 uppercase tracking-widest font-bold">
@@ -22,10 +22,15 @@ const PrecedentCard = ({ precedent }) => {
         <span className="text-[10px] bg-white/5 text-gray-400 px-2 py-0.5 rounded border border-white/5 uppercase tracking-widest font-bold">
           {precedent.year}
         </span>
+        {precedent.citation && (
+          <span className="text-[10px] bg-lex-gold/10 text-lex-gold px-2 py-0.5 rounded border border-lex-gold/20 uppercase tracking-widest font-bold">
+            {precedent.citation}
+          </span>
+        )}
       </div>
       
       <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
-        {precedent.snippet}
+        {precedent.summary}
       </p>
     </div>
   );

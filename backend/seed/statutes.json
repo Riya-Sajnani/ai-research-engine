@@ -103,5 +103,34 @@
     "title": "Application for initiation of corporate insolvency resolution process by operational creditor",
     "description": "After expiry of the period of ten days from the date of delivery of the notice or invoice demanding payment, if the operational creditor does not receive payment or notice of dispute, the operational creditor may file an application before the Adjudicating Authority for initiating corporate insolvency resolution process.",
     "keywords": ["operational creditor", "insolvency application", "demand notice", "dispute", "CIRP"]
+  },
+  {
+    "actName": "Code of Civil Procedure 1908",
+    "section": "Order 39",
+    "title": "Temporary Injunctions",
+    "description": "Order 39 of the Code of Civil Procedure, 1908 deals with the grant of temporary or interim injunctions by the court. It empowers the court to issue orders to maintain the status quo and prevent irreparable harm, such as restraining a party from transferring property, invoking a bank guarantee, or taking actions that may affect the subject matter of the dispute until the final decision is made.",
+    "keywords": [
+      "injunction",
+      "temporary injunction",
+      "interim injunction",
+      "stay",
+      "bank guarantee",
+      "property dispute",
+      "injunction"
+    ]
+  },
+  {
+    "actName": "Arbitration and Conciliation Act 1996",
+    "section": "Section 8",
+    "title": "Power to refer parties to arbitration",
+    "description": "Section 8 of the Arbitration and Conciliation Act, 1996 deals with the stay of proceedings in respect of an arbitral proceeding. It provides that where a party to an arbitral proceeding applies for a stay of proceedings, the court may, if it is satisfied that the application is made in good faith and that there is a prima facie case, grant such stay.",
+    "keywords": [
+      "arbitration",
+      "arbitration agreement",
+      "referral",
+      "stay of proceedings",
+      "Arbitration & Conciliation Act",
+      "contract termination"
+    ]
   }
 ]

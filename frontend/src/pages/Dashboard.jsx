@@ -215,27 +215,28 @@ const Dashboard = () => {
                 {/* Predictions */}
                 <ResultCard title={t.prediction}>
                   <PredictionChart 
-                    plaintiffWonPct={result.outcomeStat?.plaintiffWonPct} 
-                    defendantWonPct={result.outcomeStat?.defendantWonPct} 
+                    plaintiffWonPct={result.outcomeStat?.plaintiffWinPercentage} 
+                    defendantWonPct={result.outcomeStat?.defendantWinPercentage} 
                   />
                 </ResultCard>
                 
                 {/* Legal Provisions */}
                 <ResultCard title={t.provisions}>
-                  {result.relevantLaws && result.relevantLaws.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-3">
-                      {result.relevantLaws.map((law, i) => (
-                        <div key={i} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:border-lex-gold/20 transition-all">
-                          <div>
-                            <span className="font-bold text-white block">{law.actName || law.act}</span>
-                            <span className="text-xs text-gray-500 uppercase tracking-widest">Legal Provision</span>
-                          </div>
-                          <span className="text-sm bg-lex-gold text-lex-navyDark px-3 py-1 rounded-lg font-bold">
-                            Section {law.section}
-                          </span>
+                  {result.provisions && result.provisions.length > 0 ? (
+                  <div className="grid grid-cols-1 gap-3">
+                    {result.provisions.map((provision, i) => (
+                      <div key={i} className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:border-lex-gold/20 transition-all">
+                        <div>
+                          <span className="font-bold text-white block">{provision.actName}</span>
+                          <span className="text-xs text-gray-500 uppercase tracking-widest">{provision.title}</span>
+                          <span className="text-xs text-gray-400 mt-1 block">{provision.description?.substring(0, 100)}...</span>
                         </div>
-                      ))}
-                    </div>
+                        <span className="text-sm bg-lex-gold text-lex-navyDark px-3 py-1 rounded-lg font-bold whitespace-nowrap ml-2">
+                          {provision.section}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                   ) : (
                     <p className="text-gray-500 italic">{t.noSpecificProvisions || 'No specific legal provisions identified.'}</p>
                   )}
