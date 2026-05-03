@@ -4,9 +4,11 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
 import { motion } from 'framer-motion';
+import { useAuth } from '../context/AuthContext';
 
 const Landing = () => {
   const t = translations["English"];
+  const { user } = useAuth();
 
   return (
     <div className="min-h-screen bg-[#020617] text-white">
@@ -30,10 +32,10 @@ const Landing = () => {
                 {t.joinProfessionals || 'Join hundreds of legal professionals using LexAI to streamline their case analysis.'}
               </p>
               <button 
-                onClick={() => window.location.href = '/register'}
+                onClick={() => window.location.href = user ? '/register' : '/register'}
                 className="bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark font-bold py-4 px-10 rounded-xl transition-all shadow-lg"
               >
-                {t.createFreeAccount || 'Create Free Account'}
+                {user ? 'Create Another Account' : (t.createFreeAccount || 'Create Free Account')}
               </button>
             </motion.div>
           </div>

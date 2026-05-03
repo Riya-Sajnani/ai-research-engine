@@ -25,21 +25,6 @@ const Dashboard = () => {
     setError('');
   };
 
-  const handleUrlSubmit = async (url) => {
-    setIsAnalysing(true);
-    setError('');
-    
-    try {
-      const response = await api.post('/api/cases/analyze-link', { url, language: 'English' });
-      setResult(response.data?.data || null);
-      scrollToResults();
-    } catch (err) {
-      setError(err.response?.data?.message || 'Error analysing the case link.');
-    } finally {
-      setIsAnalysing(false);
-    }
-  };
-
   const scrollToResults = () => {
     setTimeout(() => {
       resultsRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -109,7 +94,6 @@ const Dashboard = () => {
             
             <UploadBox 
               onFileSelect={handleFileSelect} 
-              onUrlSubmit={handleUrlSubmit}
             />
             
             <AnimatePresence>
