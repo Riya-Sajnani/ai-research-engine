@@ -28,6 +28,7 @@ const Navbar = ({ isTransparent = false }) => {
 
   const navLinks = [
     { name: t.home || 'Home', path: '/', icon: <Info size={18} />, hidden: !!user },
+    { name: 'About', path: '/about', icon: <Info size={18} />, hidden: false },
     { name: t.dashboard || 'Dashboard', path: '/dashboard', icon: <LayoutDashboard size={18} />, hidden: !user },
     { name: t.history || 'History', path: '/history', icon: <History size={18} />, hidden: !user },
   ];

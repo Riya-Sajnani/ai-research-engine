@@ -135,19 +135,6 @@ const Dashboard = () => {
             transition={{ delay: 0.2 }}
             className="flex flex-col gap-6"
           >
-            <div className="glass-morphism p-6 rounded-3xl border-white/10 flex-grow">
-              <h3 className="font-bold text-lex-gold mb-4 uppercase tracking-widest text-xs">{t.recentActivity || 'Recent Activity'}</h3>
-              <div className="space-y-4">
-                <p className="text-gray-500 text-sm italic">{t.noRecentAnalyses || 'No recent analyses found. Start by uploading a PDF or pasting a link.'}</p>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-lex-navy to-[#152a46] p-6 rounded-3xl border border-white/5 shadow-2xl">
-              <h3 className="font-bold text-white mb-2">{t.proTip || 'Pro Tip'}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                {t.pasteLinksTip || 'You can now paste direct links from Indian Kanoon for instant semantic analysis of judgments.'}
-              </p>
-            </div>
           </motion.div>
         </div>
 
