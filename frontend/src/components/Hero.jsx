@@ -2,9 +2,11 @@ import React from 'react';
 import translations from '../utils/translations';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, Zap, Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import lexHero from '../assets/lex_hero.png';
 
 const Hero = () => {
+  const navigate = useNavigate();
   const t = translations['English'];
   return (
     <div className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -36,7 +38,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-lex-gold hover:bg-lex-goldDark text-lex-navyDark font-bold py-4 px-8 rounded-xl flex items-center justify-center transition-all shadow-lg shadow-lex-gold/20"
-                onClick={() => window.location.href = '/dashboard'}
+                onClick={() => navigate('/dashboard')}
               >
                 {t.goToDashboard || 'Go to Dashboard'}
                 <ArrowRight size={20} className="ml-2" />
