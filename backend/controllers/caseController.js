@@ -131,6 +131,7 @@ if(provisions.length > 0) {
     });
 
   } catch (error) {
+    console.error('uploadCase error:', error);
     res.status(500).json({ message: error.message });
   }
 };
