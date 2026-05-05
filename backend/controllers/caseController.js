@@ -6,7 +6,7 @@ const OutcomeStat = require('../models/OutcomeStat');
 const SearchHistory = require('../models/SearchHistory');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
-const { analyzeWithGemini } = require('../utils/gemini');
+const { analyzeWithGemini } = require('../utils/Gemini');
 
 const uploadCase = async (req, res) => {
   try {
